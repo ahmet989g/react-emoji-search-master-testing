@@ -1,0 +1,16 @@
+workflows:
+  version: 2
+  test-and-deploy:
+    jobs:
+      - test:
+          filters:
+            branches:
+              only:
+                - master
+      - deploy:
+          requires:
+            - test
+          filters:
+            branches:
+              only:
+                - master
